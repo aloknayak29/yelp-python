@@ -31,9 +31,10 @@ class Search(object):
             SearchResponse object that wraps the response.
 
         """
-        url_params.update({
-            'location': location
-        })
+        if location is not None:
+            url_params.update({
+                'location': location
+            })
         if current_lat is not None and current_long is not None:
             url_params['cll'] = self._format_current_lat_long(
                 current_lat,
