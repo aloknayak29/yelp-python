@@ -92,6 +92,7 @@ class ErrorHandler(object):
 
     def raise_error(self, error):
         response = json.loads(error.read().decode('UTF-8'))
+        print response
         try:
             raise self._error_map[response['error']['id']](
                 error.code,
